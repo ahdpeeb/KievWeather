@@ -8,11 +8,11 @@
 
 import Foundation
 
-enum City: String {
+enum CityType: String {
     case Kiev
 }
 
-enum Country {
+enum CountryType {
     case Ukraine
     
     var code: String {

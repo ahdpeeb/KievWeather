@@ -12,9 +12,9 @@ import ObjectMapper
 
 class AbstractApiClient: NSObject {
     public func loadObject<T: BaseMappable>(url: String,
-                      method: HTTPMethod = .post,
+                      method: HTTPMethod = .get,
                      options: AnyDict?,
-                    encoding: ParameterEncoding = JSONEncoding.default,
+                    encoding: ParameterEncoding = URLEncoding.default,
                      headers: StringDict? = nil,
                     onResult: ((_ result: T?) -> Void)?,
                      onError: ((_ error: Error) -> Void)?)
@@ -39,9 +39,9 @@ class AbstractApiClient: NSObject {
     }
     
     public func loadObjects<T: Mappable>(url: String,
-                           method: HTTPMethod = .post,
+                           method: HTTPMethod = .get,
                            options: AnyDict?,
-                           encoding: ParameterEncoding = JSONEncoding.default,
+                           encoding: ParameterEncoding = URLEncoding.default,
                            headers: StringDict? = nil,
                            onResult: ((_ result: [T]) -> Void)?,
                            onError: ErrorClosure? = nil)

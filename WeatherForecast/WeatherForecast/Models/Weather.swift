@@ -9,7 +9,7 @@
 import Foundation
 import ObjectMapper
 
-class Weather: Model<RLMWeather>, Mappable {
+final class Weather: Model<RLMWeather>, Mappable {
     
     public var data: Int? { didSet { self.write() } }
     public var main: String? { didSet { self.write() } }
@@ -22,8 +22,10 @@ class Weather: Model<RLMWeather>, Mappable {
     public var tempEve: Int? { didSet { self.write() } }
     public var tempMorn: Int? { didSet { self.write() } }
     
+    // fatalError for debag mode 
     required init?(map: Map) {
-        guard let weather = map.JSON["weather"] as? [String: Any], let id = weather["id"] as? Int else { return nil }
+        guard let weather = map.JSON["weather"] as? [[String: Any]] else { fatalError("weather reqest parsing error") }
+        guard let id = weather.first?["id"] as? Int else { fatalError("weather reqest parsing error") }
         super.init(id: ID(integerLiteral: id))
     }
     

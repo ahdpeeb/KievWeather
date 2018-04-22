@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 
 enum EndPoins {
-    case getWeather(city: City, countyCode: Country, batchCount: Int)
+    case getWeather(city: CityType, countyCode: CountryType, batchCount: Int)
     
     var url: String {
         switch self {
@@ -43,7 +43,7 @@ fileprivate extension EndPoins {
         return [
             QueryKeys.location: [city, countyCode].joined(separator: ","),
             QueryKeys.couns: batchCount,
-            QueryKeys.apiKey: Constans.WeatherApi.apiKey
+            QueryKeys.apiKey: Constans.WeatherApi.apiKey.rawValue
         ]
     }
 }

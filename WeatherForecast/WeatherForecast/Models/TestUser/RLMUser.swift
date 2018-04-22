@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class RLMUser: RMLModel {
+class RLMUser: RLMModel {
     @objc dynamic var name: String?
     let age = RealmOptional<Int>()
 }

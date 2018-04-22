@@ -59,8 +59,16 @@
                                 <segment title="10 days"/>
                                 <segment title="16 days"/>
                             </segments>
+                            <connections>
+                                <action selector="daysSegmentControlValueChanged:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ijz-1k-x89"/>
+                            </connections>
                         </segmentedControl>
                     </navigationItem>
+                    <connections>
+                        <outlet property="cartContainerView" destination="2yp-Ka-ef3" id="0ii-3y-aFw"/>
+                        <outlet property="collectionView" destination="dRU-Ul-rXv" id="Ma4-Nl-mXH"/>
+                        <outlet property="daysSegmentControl" destination="zTA-zD-UJv" id="khd-gZ-dJh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

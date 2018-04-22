@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-public class Model<Storage: RMLModel> {
+public class Model<Storage: RLMModel> {
     
     //MARK: Sybtypes
     

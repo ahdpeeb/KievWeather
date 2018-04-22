@@ -10,7 +10,7 @@ import Foundation
 
 import RealmSwift
 
-public class RMLModel: Object {
+public class RLMModel: Object {
     @objc dynamic var id: String = ""
     
     //MARK: Override

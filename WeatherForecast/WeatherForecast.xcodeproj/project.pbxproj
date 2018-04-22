@@ -41,6 +41,8 @@
 		93FD6C97208C997E0060FEA0 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FD6C96208C997E0060FEA0 /* UIViewController+Alert.swift */; };
 		93FD6C9B208C99B60060FEA0 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FD6C9A208C99B60060FEA0 /* String+Extension.swift */; };
 		93FD6C9D208C9FCC0060FEA0 /* AbstractApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FD6C9C208C9FCC0060FEA0 /* AbstractApiClient.swift */; };
+		93FD6C9F208CAA120060FEA0 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FD6C9E208CAA120060FEA0 /* City.swift */; };
+		93FD6CA1208CAA2E0060FEA0 /* RLMCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FD6CA0208CAA2E0060FEA0 /* RLMCity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +81,8 @@
 		93FD6C96208C997E0060FEA0 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		93FD6C9A208C99B60060FEA0 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		93FD6C9C208C9FCC0060FEA0 /* AbstractApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractApiClient.swift; sourceTree = "<group>"; };
+		93FD6C9E208CAA120060FEA0 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
+		93FD6CA0208CAA2E0060FEA0 /* RLMCity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RLMCity.swift; sourceTree = "<group>"; };
 		A9914B188F1111B972420176 /* Pods-WeatherForecast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherForecast.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherForecast/Pods-WeatherForecast.release.xcconfig"; sourceTree = "<group>"; };
 		B0288AF0179C53B386463B28 /* Pods-WeatherForecast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherForecast.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherForecast/Pods-WeatherForecast.debug.xcconfig"; sourceTree = "<group>"; };
 		F111E1C6D5B75CD0CC68C79E /* Pods_WeatherForecast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherForecast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -185,8 +189,8 @@
 		93FD6C4E208BAA5C0060FEA0 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				93FD6C81208BC5FD0060FEA0 /* EndPoinst.swift */,
 				93FD6C9C208C9FCC0060FEA0 /* AbstractApiClient.swift */,
+				93FD6C81208BC5FD0060FEA0 /* EndPoinst.swift */,
 				93FD6C83208BC7A60060FEA0 /* ApiConstans.swift */,
 				93FD6C85208BCC6F0060FEA0 /* ApiClient.swift */,
 			);
@@ -197,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				93FD6C87208BCEEC0060FEA0 /* Weather.swift */,
+				93FD6C9E208CAA120060FEA0 /* City.swift */,
 				93FD6C89208BCEF70060FEA0 /* RLMModels */,
 				93FD6C77208BAFC60060FEA0 /* TestUser */,
 			);
@@ -288,6 +293,7 @@
 			isa = PBXGroup;
 			children = (
 				93FD6C8A208BCF0C0060FEA0 /* RLMWeather.swift */,
+				93FD6CA0208CAA2E0060FEA0 /* RLMCity.swift */,
 			);
 			path = RLMModels;
 			sourceTree = "<group>";
@@ -438,6 +444,7 @@
 				93FD6C75208BAD840060FEA0 /* Functions.swift in Sources */,
 				93FD6C73208BAD490060FEA0 /* Codable+Extension.swift in Sources */,
 				93FD6C58208BABBC0060FEA0 /* WeatherChartViewController.swift in Sources */,
+				93FD6CA1208CAA2E0060FEA0 /* RLMCity.swift in Sources */,
 				93FD6C3A208BA9F60060FEA0 /* AppDelegate.swift in Sources */,
 				93FD6C7A208BAFC70060FEA0 /* User.swift in Sources */,
 				93FD6C56208BAB190060FEA0 /* WeatherViewController.swift in Sources */,
@@ -448,6 +455,7 @@
 				93FD6C88208BCEEC0060FEA0 /* Weather.swift in Sources */,
 				93FD6C86208BCC6F0060FEA0 /* ApiClient.swift in Sources */,
 				93FD6C7B208BAFC70060FEA0 /* RLMUser.swift in Sources */,
+				93FD6C9F208CAA120060FEA0 /* City.swift in Sources */,
 				93FD6C82208BC5FD0060FEA0 /* EndPoinst.swift in Sources */,
 				93FD6C9D208C9FCC0060FEA0 /* AbstractApiClient.swift in Sources */,
 				93FD6C52208BAAAC0060FEA0 /* RootNavigationController.swift in Sources */,
