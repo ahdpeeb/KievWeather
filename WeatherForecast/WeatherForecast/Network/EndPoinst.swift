@@ -43,7 +43,8 @@ fileprivate extension EndPoins {
         return [
             QueryKeys.location: [city, countyCode].joined(separator: ","),
             QueryKeys.couns: batchCount,
-            QueryKeys.apiKey: Constans.WeatherApi.apiKey.rawValue
+            QueryKeys.apiKey: Constans.WeatherApi.apiKey.rawValue,
+            QueryKeys.units: Constans.WeatherApi.celsius.rawValue
         ]
     }
 }

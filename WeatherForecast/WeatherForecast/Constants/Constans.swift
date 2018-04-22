@@ -16,6 +16,7 @@ typealias StringDict = [String: String]
 struct Constans {    
     enum WeatherApi: String {
         case apiKey = "bd5e378503939ddaee76f12ad7a97608"
+        case celsius = "metric"
     }
     
     struct ErrorMessage {

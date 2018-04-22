@@ -15,18 +15,27 @@ final class Weather: Model<RLMWeather>, Mappable {
     public var main: String? { didSet { self.write() } }
     public var info: String? { didSet { self.write() } }
     public var icon: String? { didSet { self.write() } }
-    public var tempDay: Int? { didSet { self.write() } }
-    public var tempMin: Int? { didSet { self.write() } }
-    public var tempMax: Int? { didSet { self.write() } }
-    public var tempNight: Int? { didSet { self.write() } }
-    public var tempEve: Int? { didSet { self.write() } }
-    public var tempMorn: Int? { didSet { self.write() } }
+    public var tempDay: Double? { didSet { self.write() } }
+    public var tempMin: Double? { didSet { self.write() } }
+    public var tempMax: Double? { didSet { self.write() } }
+    public var tempNight: Double? { didSet { self.write() } }
+    public var tempEve: Double? { didSet { self.write() } }
+    public var tempMorn: Double? { didSet { self.write() } }
+    
+    //MARK: Helper prop
+    
+    public var weatherDate: Date?  {
+        guard let data = self.data.flatMap({ Double( $0 ) }) else { return nil }
+        return Date(timeIntervalSince1970: data)
+    }
     
     //Probleb: server returns 16 weather objects for city, all objects have 4 differt ID 500, 501, 800, 803 (so i have to replace primary key with date)
     
     // fatalError for debag mode
     /* guard let weather = map.JSON["weather"] as? [[String: Any]] else { fatalError("weather reqest parsing error") }
     guard let id = weather.first?["id"] as? Int else { fatalError("weather reqest parsing error") } */
+    
+    //MARK: init
     
     required init?(map: Map) {
         guard let id = map.JSON["dt"] as? Int else { return nil }
@@ -39,9 +48,9 @@ final class Weather: Model<RLMWeather>, Mappable {
     
     func mapping(map: Map) {
         self.data <- map["dt"]
-        self.main <- map["weather.[0].main"]
-        self.info <- map["weather.[0].description"]
-        self.icon <- map["weather.[0].icon"]
+        self.main <- map["weather.0.main"]
+        self.info <- map["weather.0.description"]
+        self.icon <- map["weather.0.icon"]
         self.tempDay <- map["temp.day"]
         self.tempMin <- map["temp.min"]
         self.tempMax <- map["temp.max"]

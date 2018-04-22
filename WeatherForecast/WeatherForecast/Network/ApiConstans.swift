@@ -18,4 +18,5 @@ struct QueryKeys {
     static let location = "q" // city, country code, separated by coma
     static let couns = "cnt" // number of days
     static let apiKey = "APPID"
+    static let units = "units"
 }

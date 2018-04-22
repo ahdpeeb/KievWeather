@@ -9,6 +9,12 @@
 import UIKit
 import Reachability
 
+struct WeatherConstans {
+    static let interItemSpacing: CGFloat = 10
+    static let cellsInScreen = 2
+    static let cardHeight: CGFloat = 100
+}
+
 class WeatherViewController: UIViewController {
     // depends on sender.selectedSegmentIndex
     enum DisplayedDays: Int {
@@ -91,7 +97,19 @@ extension WeatherViewController {
 //MARK: UI
 extension WeatherViewController {
     func configureCollectionView() {
-        
+        let collection = self.collectionView
+        collection?.registerCell(cls: WeatherCollectionViewCell.self)
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = WeatherConstans.interItemSpacing
+        layout.itemSize = self.cardSize()
+        collection?.collectionViewLayout = layout
+    }
+    
+    func cardSize() -> CGSize {
+        let screenWidth = UIScreen.main.bounds.size.width
+        return CGSize(width: (screenWidth - WeatherConstans.interItemSpacing) / CGFloat(2).rounded(.down),
+               height: WeatherConstans.cardHeight)
     }
     
     func listenNetworkConnection() {
@@ -142,5 +160,18 @@ extension WeatherViewController {
 }
 
 extension WeatherViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.weatherToDisplay.count
+    }
     
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueCell(cls: WeatherCollectionViewCell.self, indexPath: indexPath)!
+        let weather = self.weatherToDisplay[indexPath.row]
+        cell.weatherDate = weather.weatherDate
+        cell.weatherImageName = weather.icon
+        cell.tempDay = weather.tempDay
+        cell.tempNightn = weather.tempNight
+        
+        return cell
+    }
 }
