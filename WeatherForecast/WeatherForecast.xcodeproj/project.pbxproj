@@ -34,6 +34,12 @@
 		93FD6C86208BCC6F0060FEA0 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FD6C85208BCC6F0060FEA0 /* ApiClient.swift */; };
 		93FD6C88208BCEEC0060FEA0 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FD6C87208BCEEC0060FEA0 /* Weather.swift */; };
 		93FD6C8B208BCF0C0060FEA0 /* RLMWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FD6C8A208BCF0C0060FEA0 /* RLMWeather.swift */; };
+		93FD6C8D208C987E0060FEA0 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FD6C8C208C987E0060FEA0 /* UIViewController+Extension.swift */; };
+		93FD6C8F208C99040060FEA0 /* RawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FD6C8E208C99040060FEA0 /* RawRepresentable.swift */; };
+		93FD6C93208C99220060FEA0 /* UINib+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FD6C92208C99220060FEA0 /* UINib+Extension.swift */; };
+		93FD6C95208C99620060FEA0 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FD6C94208C99620060FEA0 /* UICollectionView+Extension.swift */; };
+		93FD6C97208C997E0060FEA0 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FD6C96208C997E0060FEA0 /* UIViewController+Alert.swift */; };
+		93FD6C9B208C99B60060FEA0 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FD6C9A208C99B60060FEA0 /* String+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +71,12 @@
 		93FD6C85208BCC6F0060FEA0 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		93FD6C87208BCEEC0060FEA0 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		93FD6C8A208BCF0C0060FEA0 /* RLMWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RLMWeather.swift; sourceTree = "<group>"; };
+		93FD6C8C208C987E0060FEA0 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		93FD6C8E208C99040060FEA0 /* RawRepresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RawRepresentable.swift; sourceTree = "<group>"; };
+		93FD6C92208C99220060FEA0 /* UINib+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINib+Extension.swift"; sourceTree = "<group>"; };
+		93FD6C94208C99620060FEA0 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
+		93FD6C96208C997E0060FEA0 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
+		93FD6C9A208C99B60060FEA0 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		A9914B188F1111B972420176 /* Pods-WeatherForecast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherForecast.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherForecast/Pods-WeatherForecast.release.xcconfig"; sourceTree = "<group>"; };
 		B0288AF0179C53B386463B28 /* Pods-WeatherForecast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherForecast.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherForecast/Pods-WeatherForecast.debug.xcconfig"; sourceTree = "<group>"; };
 		F111E1C6D5B75CD0CC68C79E /* Pods_WeatherForecast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherForecast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,12 +136,12 @@
 				93FD6C76208BAFB10060FEA0 /* RealmStorage */,
 				93FD6C71208BAD290060FEA0 /* Functions */,
 				93FD6C54208BAAC40060FEA0 /* Resources */,
-				93FD6C53208BAAB90060FEA0 /* Storyboard */,
 				93FD6C50208BAA740060FEA0 /* Models */,
 				93FD6C4E208BAA5C0060FEA0 /* Network */,
 				93FD6C4D208BAA420060FEA0 /* VIews */,
 				93FD6C4C208BAA270060FEA0 /* Extensions */,
 				93FD6C4B208BAA190060FEA0 /* ViewControllers */,
+				93FD6C53208BAAB90060FEA0 /* Storyboard */,
 				93FD6C39208BA9F60060FEA0 /* AppDelegate.swift */,
 				93FD6C45208BA9F80060FEA0 /* Info.plist */,
 			);
@@ -149,6 +161,12 @@
 		93FD6C4C208BAA270060FEA0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				93FD6C94208C99620060FEA0 /* UICollectionView+Extension.swift */,
+				93FD6C92208C99220060FEA0 /* UINib+Extension.swift */,
+				93FD6C96208C997E0060FEA0 /* UIViewController+Alert.swift */,
+				93FD6C8E208C99040060FEA0 /* RawRepresentable.swift */,
+				93FD6C9A208C99B60060FEA0 /* String+Extension.swift */,
+				93FD6C8C208C987E0060FEA0 /* UIViewController+Extension.swift */,
 				93FD6C72208BAD490060FEA0 /* Codable+Extension.swift */,
 				93FD6C6F208BAD190060FEA0 /* Optinal+Extension.swift */,
 			);
@@ -405,12 +423,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93FD6C8D208C987E0060FEA0 /* UIViewController+Extension.swift in Sources */,
 				93FD6C66208BAC1F0060FEA0 /* Model.swift in Sources */,
+				93FD6C93208C99220060FEA0 /* UINib+Extension.swift in Sources */,
 				93FD6C70208BAD190060FEA0 /* Optinal+Extension.swift in Sources */,
 				93FD6C80208BBFE20060FEA0 /* Constans.swift in Sources */,
 				93FD6C84208BC7A60060FEA0 /* ApiConstans.swift in Sources */,
 				93FD6C8B208BCF0C0060FEA0 /* RLMWeather.swift in Sources */,
 				93FD6C6C208BAC1F0060FEA0 /* ID.swift in Sources */,
+				93FD6C8F208C99040060FEA0 /* RawRepresentable.swift in Sources */,
 				93FD6C75208BAD840060FEA0 /* Functions.swift in Sources */,
 				93FD6C73208BAD490060FEA0 /* Codable+Extension.swift in Sources */,
 				93FD6C58208BABBC0060FEA0 /* WeatherChartViewController.swift in Sources */,
@@ -420,6 +441,7 @@
 				93FD6C69208BAC1F0060FEA0 /* Atomic.swift in Sources */,
 				93FD6C6D208BAC1F0060FEA0 /* IDProvider.swift in Sources */,
 				93FD6C6E208BAC1F0060FEA0 /* Realm+Extension.swift in Sources */,
+				93FD6C95208C99620060FEA0 /* UICollectionView+Extension.swift in Sources */,
 				93FD6C88208BCEEC0060FEA0 /* Weather.swift in Sources */,
 				93FD6C86208BCC6F0060FEA0 /* ApiClient.swift in Sources */,
 				93FD6C7B208BAFC70060FEA0 /* RLMUser.swift in Sources */,
@@ -428,6 +450,8 @@
 				93FD6C7D208BBB8C0060FEA0 /* WeatherRegions.swift in Sources */,
 				93FD6C67208BAC1F0060FEA0 /* RMLModel.swift in Sources */,
 				93FD6C68208BAC1F0060FEA0 /* WeakBox.swift in Sources */,
+				93FD6C9B208C99B60060FEA0 /* String+Extension.swift in Sources */,
+				93FD6C97208C997E0060FEA0 /* UIViewController+Alert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -575,7 +599,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2MQ5R4FSP4;
 				INFOPLIST_FILE = WeatherForecast/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Nikola-Andriiev.WeatherForecast";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -591,7 +618,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2MQ5R4FSP4;
 				INFOPLIST_FILE = WeatherForecast/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Nikola-Andriiev.WeatherForecast";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

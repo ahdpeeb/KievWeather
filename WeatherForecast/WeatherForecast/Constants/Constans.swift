@@ -8,6 +8,8 @@
 
 import Foundation
 
+typealias SimpleBLock = () -> Void
+
 struct Constans {
     enum WeatherApi: String {
         case apiKey = "bd5e378503939ddaee76f12ad7a97608"

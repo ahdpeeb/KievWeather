@@ -18,16 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zTA-zD-UJv">
-                                <rect key="frame" x="0.0" y="64" width="375" height="29"/>
-                                <segments>
-                                    <segment title="5 days"/>
-                                    <segment title="10 days"/>
-                                    <segment title="16 days"/>
-                                </segments>
-                            </segmentedControl>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dRU-Ul-rXv">
-                                <rect key="frame" x="0.0" y="100" width="375" height="100"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="100"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="Pyo-fR-NWl"/>
@@ -41,26 +33,34 @@
                                 <cells/>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2yp-Ka-ef3">
-                                <rect key="frame" x="0.0" y="200" width="375" height="467"/>
+                                <rect key="frame" x="0.0" y="164" width="375" height="503"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="zTA-zD-UJv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="BLU-M9-0s2"/>
                             <constraint firstItem="2yp-Ka-ef3" firstAttribute="top" secondItem="dRU-Ul-rXv" secondAttribute="bottom" id="Bek-KX-RTa"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dRU-Ul-rXv" secondAttribute="trailing" id="Fie-Mi-ras"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="2yp-Ka-ef3" secondAttribute="bottom" id="GBR-3h-RJQ"/>
-                            <constraint firstItem="zTA-zD-UJv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="HQK-g4-Ecl"/>
-                            <constraint firstItem="dRU-Ul-rXv" firstAttribute="top" secondItem="zTA-zD-UJv" secondAttribute="bottom" constant="8" id="KRC-ke-vkY"/>
+                            <constraint firstItem="dRU-Ul-rXv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Gcy-sr-viS"/>
                             <constraint firstItem="dRU-Ul-rXv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="MCd-Q0-VIA"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2yp-Ka-ef3" secondAttribute="trailing" id="P4O-Cw-AdT"/>
                             <constraint firstItem="2yp-Ka-ef3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ps3-fY-nfd"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zTA-zD-UJv" secondAttribute="trailing" id="ayW-0K-JMq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="tyY-KU-mdx"/>
+                    <navigationItem key="navigationItem" id="tyY-KU-mdx">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="zTA-zD-UJv">
+                            <rect key="frame" x="95" y="7.5" width="185" height="29"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="5 days"/>
+                                <segment title="10 days"/>
+                                <segment title="16 days"/>
+                            </segments>
+                        </segmentedControl>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
