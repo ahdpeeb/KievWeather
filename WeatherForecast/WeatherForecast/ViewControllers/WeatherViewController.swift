@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Reachability
 
 class WeatherViewController: UIViewController {
     // depends on sender.selectedSegmentIndex
@@ -21,6 +22,7 @@ class WeatherViewController: UIViewController {
         }
     }
     
+    fileprivate let reachability = Reachability()
     @IBOutlet fileprivate var daysSegmentControl: UISegmentedControl?
     @IBOutlet fileprivate var cartContainerView: UIView?
     @IBOutlet fileprivate var collectionView: UICollectionView? {
@@ -57,14 +59,24 @@ class WeatherViewController: UIViewController {
         }
     }
     
+    deinit {
+        self.reachability?.stopNotifier()
+    }
+    
+    //MARK: View live cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if let cachedCityID = DataManager.shared.lastLoadedCityID {
             self.loadCachedCity(id: cachedCityID)
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        self.loadKievWeather()
+        self.listenNetworkConnection()
     }
 }
 
@@ -80,6 +92,23 @@ extension WeatherViewController {
 extension WeatherViewController {
     func configureCollectionView() {
         
+    }
+    
+    func listenNetworkConnection() {
+        let reachability = self.reachability
+        reachability?.whenReachable = { reachability in
+            self.loadKievWeather()
+        }
+        
+        reachability?.whenUnreachable = { _ in
+            self.displayAlert(message: Constans.ErrorMessage.internetConnection)
+        }
+        
+        do {
+            try reachability?.startNotifier()
+        } catch {
+            print("Unable to start notifier")
+        }
     }
 }
 
@@ -110,4 +139,8 @@ extension WeatherViewController {
         
         self.weatherToDisplay = Array(allWeather.prefix(days.count))
     }
+}
+
+extension WeatherViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    
 }

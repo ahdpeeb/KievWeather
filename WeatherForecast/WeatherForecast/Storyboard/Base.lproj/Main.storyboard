@@ -31,6 +31,10 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="slC-HO-Zzx"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="wjU-Fn-7XT"/>
+                                </connections>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2yp-Ka-ef3">
                                 <rect key="frame" x="0.0" y="164" width="375" height="503"/>
@@ -51,7 +55,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="tyY-KU-mdx">
                         <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="zTA-zD-UJv">
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="zTA-zD-UJv">
                             <rect key="frame" x="95" y="7.5" width="185" height="29"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>

@@ -8,12 +8,7 @@
 
 import Foundation
 
-extension LocalStorageManager {
-    public func city(id: String) -> City? {
-        guard let rlmCity = self.loadObject(type: RLMCity.self, id: id) else { return nil }
-        return City.instantiate(storage: rlmCity)
-    }
-    
+extension LocalStorageManager {    
     public func allWeather() -> [Weather] {
         guard let allRLMWeather = self.loadObjects(type: RLMWeather.self) else { return [] }
         let allWEather = allRLMWeather.compactMap({ rlmWeather in
