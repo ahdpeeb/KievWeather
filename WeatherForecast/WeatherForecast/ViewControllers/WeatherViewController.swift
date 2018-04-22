@@ -29,8 +29,9 @@ class WeatherViewController: UIViewController {
     }
     
     fileprivate let reachability = Reachability()
+    fileprivate var chartViewController: WeatherChartViewController?
     @IBOutlet fileprivate var daysSegmentControl: UISegmentedControl?
-    @IBOutlet fileprivate var cartContainerView: UIView?
+    @IBOutlet fileprivate var chartContainerView: UIView?
     @IBOutlet fileprivate var collectionView: UICollectionView? {
         didSet {
             self.configureCollectionView()
@@ -60,7 +61,7 @@ class WeatherViewController: UIViewController {
             print("Presented days - \(weatherToDisplay.count)")
             DispatchQueue.main.async {
                 self.collectionView?.reloadData()
-                //child controller redraw graphic
+                self.chartViewController?.weathers = self.weatherToDisplay
             }
         }
     }
@@ -83,6 +84,7 @@ class WeatherViewController: UIViewController {
         super.viewWillAppear(animated)
         
         self.listenNetworkConnection()
+        self.bindChartController()
     }
 }
 
@@ -95,7 +97,7 @@ extension WeatherViewController {
 }
 
 //MARK: UI
-extension WeatherViewController {
+fileprivate extension WeatherViewController {
     func configureCollectionView() {
         let collection = self.collectionView
         collection?.registerCell(cls: WeatherCollectionViewCell.self)
@@ -104,6 +106,17 @@ extension WeatherViewController {
         layout.minimumLineSpacing = WeatherConstans.interItemSpacing
         layout.itemSize = self.cardSize()
         collection?.collectionViewLayout = layout
+    }
+    
+    func bindChartController() {
+        if let container = self.chartContainerView,
+            let controller = UIStoryboard.controllerFromMainStorybourd(cls: WeatherChartViewController.self)
+        {
+            self.addChildViewControoler(controller, toContainerView: container)
+            self.chartViewController = controller
+            controller.weathers = self.weatherToDisplay
+        }
+        
     }
     
     func cardSize() -> CGSize {

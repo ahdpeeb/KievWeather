@@ -36,12 +36,20 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="wjU-Fn-7XT"/>
                                 </connections>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="11g-ng-Qdu">
+                                <rect key="frame" x="0.0" y="164" width="375" height="503"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dRU-Ul-rXv" secondAttribute="trailing" id="Fie-Mi-ras"/>
                             <constraint firstItem="dRU-Ul-rXv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Gcy-sr-viS"/>
                             <constraint firstItem="dRU-Ul-rXv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="MCd-Q0-VIA"/>
+                            <constraint firstItem="11g-ng-Qdu" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="StJ-1C-gqp"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="11g-ng-Qdu" secondAttribute="bottom" id="VfK-Ur-She"/>
+                            <constraint firstItem="11g-ng-Qdu" firstAttribute="top" secondItem="dRU-Ul-rXv" secondAttribute="bottom" id="bqs-v6-x3O"/>
+                            <constraint firstItem="11g-ng-Qdu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vLy-BD-2ET"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -61,6 +69,7 @@
                         </segmentedControl>
                     </navigationItem>
                     <connections>
+                        <outlet property="chartContainerView" destination="11g-ng-Qdu" id="1Ah-Bv-yCb"/>
                         <outlet property="collectionView" destination="dRU-Ul-rXv" id="Ma4-Nl-mXH"/>
                         <outlet property="daysSegmentControl" destination="zTA-zD-UJv" id="khd-gZ-dJh"/>
                     </connections>
@@ -72,13 +81,28 @@
         <!--Weather Chart View Controller-->
         <scene sceneID="g7L-XY-p0u">
             <objects>
-                <viewController id="356-bA-QD0" customClass="WeatherChartViewController" customModule="WeatherForecast" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WeatherChartViewController" id="356-bA-QD0" customClass="WeatherChartViewController" customModule="WeatherForecast" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NRT-U2-TrQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iHG-Ho-DPc" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="8" y="28" width="359" height="631"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="iHG-Ho-DPc" firstAttribute="leading" secondItem="Nid-Ur-MKg" secondAttribute="leading" constant="8" id="0QK-YU-FQ5"/>
+                            <constraint firstItem="Nid-Ur-MKg" firstAttribute="trailing" secondItem="iHG-Ho-DPc" secondAttribute="trailing" constant="8" id="22B-gt-FRF"/>
+                            <constraint firstItem="Nid-Ur-MKg" firstAttribute="bottom" secondItem="iHG-Ho-DPc" secondAttribute="bottom" constant="8" id="8L2-Ir-ez8"/>
+                            <constraint firstItem="iHG-Ho-DPc" firstAttribute="top" secondItem="Nid-Ur-MKg" secondAttribute="top" constant="8" id="maJ-Gf-aji"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Nid-Ur-MKg"/>
                     </view>
+                    <connections>
+                        <outlet property="chartView" destination="iHG-Ho-DPc" id="nEX-w3-lLw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ygi-Yt-Bei" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

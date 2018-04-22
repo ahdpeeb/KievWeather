@@ -48,6 +48,7 @@
 		93FD6CAF208CDE3E0060FEA0 /* WeatherCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93FD6CAD208CDE3E0060FEA0 /* WeatherCollectionViewCell.xib */; };
 		93FD6CB2208D21F50060FEA0 /* UIView+Extensiton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FD6CB1208D21F50060FEA0 /* UIView+Extensiton.swift */; };
 		93FD6CB4208D28500060FEA0 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FD6CB3208D28500060FEA0 /* Date+Extension.swift */; };
+		93FD6CB6208D3EC40060FEA0 /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FD6CB5208D3EC20060FEA0 /* UIStoryboard+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +94,7 @@
 		93FD6CAD208CDE3E0060FEA0 /* WeatherCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherCollectionViewCell.xib; sourceTree = "<group>"; };
 		93FD6CB1208D21F50060FEA0 /* UIView+Extensiton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensiton.swift"; sourceTree = "<group>"; };
 		93FD6CB3208D28500060FEA0 /* Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		93FD6CB5208D3EC20060FEA0 /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
 		A9914B188F1111B972420176 /* Pods-WeatherForecast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherForecast.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherForecast/Pods-WeatherForecast.release.xcconfig"; sourceTree = "<group>"; };
 		B0288AF0179C53B386463B28 /* Pods-WeatherForecast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherForecast.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherForecast/Pods-WeatherForecast.debug.xcconfig"; sourceTree = "<group>"; };
 		F111E1C6D5B75CD0CC68C79E /* Pods_WeatherForecast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherForecast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -180,6 +182,7 @@
 			children = (
 				93FD6CB1208D21F50060FEA0 /* UIView+Extensiton.swift */,
 				93FD6C94208C99620060FEA0 /* UICollectionView+Extension.swift */,
+				93FD6CB5208D3EC20060FEA0 /* UIStoryboard+Extension.swift */,
 				93FD6C92208C99220060FEA0 /* UINib+Extension.swift */,
 				93FD6C96208C997E0060FEA0 /* UIViewController+Alert.swift */,
 				93FD6CB3208D28500060FEA0 /* Date+Extension.swift */,
@@ -492,6 +495,7 @@
 				93FD6CB2208D21F50060FEA0 /* UIView+Extensiton.swift in Sources */,
 				93FD6C95208C99620060FEA0 /* UICollectionView+Extension.swift in Sources */,
 				93FD6C88208BCEEC0060FEA0 /* Weather.swift in Sources */,
+				93FD6CB6208D3EC40060FEA0 /* UIStoryboard+Extension.swift in Sources */,
 				93FD6C86208BCC6F0060FEA0 /* ApiClient.swift in Sources */,
 				93FD6C9F208CAA120060FEA0 /* City.swift in Sources */,
 				93FD6CA3208CB8530060FEA0 /* LocalStorageManager.swift in Sources */,
@@ -651,7 +655,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2MQ5R4FSP4;
 				INFOPLIST_FILE = WeatherForecast/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Nikola-Andriiev.WeatherForecast";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -667,7 +674,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2MQ5R4FSP4;
 				INFOPLIST_FILE = WeatherForecast/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Nikola-Andriiev.WeatherForecast";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

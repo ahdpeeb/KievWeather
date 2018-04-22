@@ -39,9 +39,9 @@ final class City: Model<RLMCity>, Mappable {
         storage.name = self.name
         storage.country = self.country
         
-        let rlmWeathers = (self.weather ?? []).map({ $0.storage })
         //should remove all old weather for this city
         storage.weather.removeAll()
+        let rlmWeathers = (self.weather ?? []).map({ $0.storage })
         storage.weather.append(objectsIn: rlmWeathers)
     }
     
