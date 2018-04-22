@@ -30,6 +30,10 @@ final class City: Model<RLMCity>, Mappable {
         super.init(id: id)
     }
     
+    public convenience init(_ id: Int) {
+        self.init(id: ID(id))
+    }
+    
     //MARK: Requered override
     open override func wtiteStorage(_ storage: StorageType) {
         storage.name = self.name

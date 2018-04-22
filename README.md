@@ -5,7 +5,7 @@ Display Kiev weather statistic chart
 - Alamofire;
 - Realm;
 - Charts;
-
+- ObjectMapper
 # Installation guide:
 
 1) Dowdload project (Zip or via gitHub)

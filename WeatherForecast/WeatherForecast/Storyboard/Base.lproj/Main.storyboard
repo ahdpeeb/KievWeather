@@ -36,20 +36,12 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="wjU-Fn-7XT"/>
                                 </connections>
                             </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2yp-Ka-ef3">
-                                <rect key="frame" x="0.0" y="164" width="375" height="503"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="2yp-Ka-ef3" firstAttribute="top" secondItem="dRU-Ul-rXv" secondAttribute="bottom" id="Bek-KX-RTa"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dRU-Ul-rXv" secondAttribute="trailing" id="Fie-Mi-ras"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="2yp-Ka-ef3" secondAttribute="bottom" id="GBR-3h-RJQ"/>
                             <constraint firstItem="dRU-Ul-rXv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Gcy-sr-viS"/>
                             <constraint firstItem="dRU-Ul-rXv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="MCd-Q0-VIA"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2yp-Ka-ef3" secondAttribute="trailing" id="P4O-Cw-AdT"/>
-                            <constraint firstItem="2yp-Ka-ef3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ps3-fY-nfd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -69,7 +61,6 @@
                         </segmentedControl>
                     </navigationItem>
                     <connections>
-                        <outlet property="cartContainerView" destination="2yp-Ka-ef3" id="0ii-3y-aFw"/>
                         <outlet property="collectionView" destination="dRU-Ul-rXv" id="Ma4-Nl-mXH"/>
                         <outlet property="daysSegmentControl" destination="zTA-zD-UJv" id="khd-gZ-dJh"/>
                     </connections>
@@ -77,6 +68,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1081" y="793"/>
+        </scene>
+        <!--Weather Chart View Controller-->
+        <scene sceneID="g7L-XY-p0u">
+            <objects>
+                <viewController id="356-bA-QD0" customClass="WeatherChartViewController" customModule="WeatherForecast" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NRT-U2-TrQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Nid-Ur-MKg"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ygi-Yt-Bei" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2006" y="804"/>
         </scene>
         <!--Root Navigation Controller-->
         <scene sceneID="cFl-b4-rBC">

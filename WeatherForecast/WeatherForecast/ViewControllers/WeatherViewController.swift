@@ -135,7 +135,8 @@ extension WeatherViewController {
     func loadKievWeather() {
         ApiClient.shared.loadKievWeather(onCompletion: { (city) in
             guard let city = city else { return }
-            DataManager.shared.lastLoadedCityID = city.id.description
+            let cityID = city.id.description
+            DataManager.shared.lastLoadedCityID = cityID
             self.city = city
         }) { (error) in
             self.displayAlert(message: error.localizedDescription)
@@ -143,7 +144,7 @@ extension WeatherViewController {
     }
     
     func loadCachedCity(id: String) {
-        let storedCity = ID.init(string: id).map({ City(id: $0) })
+        let storedCity = ID(string: id).flatMap({ City(id: $0) })
         self.city = storedCity
     }
     
