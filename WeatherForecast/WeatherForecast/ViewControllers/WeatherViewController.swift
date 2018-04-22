@@ -12,6 +12,13 @@ class WeatherViewController: UIViewController {
     // depends on sender.selectedSegmentIndex
     enum DisplayedDays: Int {
         case five, ten, sixteen
+        var count: Int {
+            switch self {
+            case .five: return 5
+            case .sixteen: return 16
+            case .ten: return 10
+            }
+        }
     }
     
     @IBOutlet fileprivate var daysSegmentControl: UISegmentedControl?
@@ -24,7 +31,7 @@ class WeatherViewController: UIViewController {
     
     fileprivate var presentedDays: WeatherViewController.DisplayedDays = .five {
         didSet {
-            
+            self.fillDataSoarce(with: presentedDays)
         }
     }
     
@@ -36,14 +43,13 @@ class WeatherViewController: UIViewController {
     
     fileprivate var cityWeather: [Weather]? = [] {
         didSet {
-            print(cityWeather?.count)
-            //sort weatherToDisplay, base on daysSegmentControl
+            self.fillDataSoarce(with: self.presentedDays)
         }
     }
     
     fileprivate var weatherToDisplay: [Weather] = [] {
         didSet {
-            print(weatherToDisplay.count)
+            print("Presented days - \(weatherToDisplay.count)")
             DispatchQueue.main.async {
                 self.collectionView?.reloadData()
                 //child controller redraw graphic
@@ -82,7 +88,6 @@ extension WeatherViewController {
     func loadKievWeather() {
         ApiClient.shared.loadKievWeather(onCompletion: { (city) in
             guard let city = city else { return }
-            print(city.id.description)
             DataManager.shared.lastLoadedCityID = city.id.description
             self.city = city
         }) { (error) in
@@ -93,5 +98,16 @@ extension WeatherViewController {
     func loadCachedCity(id: String) {
         let storedCity = ID.init(string: id).map({ City(id: $0) })
         self.city = storedCity
+    }
+    
+    func fillDataSoarce(with days: DisplayedDays) {
+        let allWeather = self.cityWeather ?? []
+        guard allWeather.count - 1 >= days.count else {
+            self.weatherToDisplay = allWeather
+            
+            return
+        }
+        
+        self.weatherToDisplay = Array(allWeather.prefix(days.count))
     }
 }
