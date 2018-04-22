@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 extension UIViewController {
-    func displayAlert(title: String? = "Error".localized, message: String?, okBlock: SimpleBLock? = nil) {
+    func displayAlert(title: String? = "Error".localized, message: String?, okBlock: SimpleClosure? = nil) {
         let allert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Ok".localized, style: .default) { _ in
             okBlock?()

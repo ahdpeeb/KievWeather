@@ -13,5 +13,11 @@ enum City: String {
 }
 
 enum Country {
-    case ua
+    case Ukraine
+    
+    var code: String {
+        switch self {
+        case .Ukraine: return "ua"
+        }
+    }
 }

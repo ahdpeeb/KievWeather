@@ -10,18 +10,24 @@ import Foundation
 import Alamofire
 
 enum EndPoins {
-    case getWeather(city: String, countyCode: String, batchCount: Int)
+    case getWeather(city: City, countyCode: Country, batchCount: Int)
     
     var url: String {
         switch self {
         case .getWeather(_, _, _): return ApiConstans.ApiPaths.getWeather
         }
     }
-        
+    
+    var method: Alamofire.HTTPMethod {
+        switch self {
+        default: return .get
+        }
+    }
+    
     var parametres: [String: Any] {
         switch self {
         case .getWeather(let city, let countyCode, let batchCount):
-            return self.weatherParametres(city: city, countyCode: countyCode, batchCount: batchCount)
+            return self.weatherParametres(city: city.rawValue, countyCode: countyCode.code, batchCount: batchCount)
         }
     }
         
