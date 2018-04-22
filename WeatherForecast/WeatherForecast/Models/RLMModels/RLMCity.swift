@@ -12,5 +12,5 @@ import RealmSwift
 class RLMCity: RLMModel {
     @objc dynamic var name: String?
     @objc dynamic var country: String?
-    var arrayOfSchedule = List<RLMWeather>()
+    var weather = List<RLMWeather>()
 }

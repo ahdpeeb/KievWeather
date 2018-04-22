@@ -36,12 +36,14 @@ class WeatherViewController: UIViewController {
     
     fileprivate var cityWeather: [Weather]? = [] {
         didSet {
+            print(cityWeather?.count)
             //sort weatherToDisplay, base on daysSegmentControl
         }
     }
     
     fileprivate var weatherToDisplay: [Weather] = [] {
         didSet {
+            print(weatherToDisplay.count)
             DispatchQueue.main.async {
                 self.collectionView?.reloadData()
                 //child controller redraw graphic
@@ -51,6 +53,10 @@ class WeatherViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let cachedCityID = DataManager.shared.lastLoadedCityID {
+            self.loadCachedCity(id: cachedCityID)
+        }
         
         self.loadKievWeather()
     }
@@ -75,11 +81,17 @@ extension WeatherViewController {
 extension WeatherViewController {
     func loadKievWeather() {
         ApiClient.shared.loadKievWeather(onCompletion: { (city) in
+            guard let city = city else { return }
+            print(city.id.description)
+            DataManager.shared.lastLoadedCityID = city.id.description
             self.city = city
-            print(city?.weather?.count)
-            self.weatherToDisplay = (city?.weather) ?? []
         }) { (error) in
             self.displayAlert(message: error.localizedDescription)
         }
+    }
+    
+    func loadCachedCity(id: String) {
+        let storedCity = ID.init(string: id).map({ City(id: $0) })
+        self.city = storedCity
     }
 }

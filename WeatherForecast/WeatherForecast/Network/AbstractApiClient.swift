@@ -32,6 +32,11 @@ class AbstractApiClient: NSObject {
                 return
             }
             
+            if let error = self.errorFromJSONResponce(json) {
+                onError?(error)
+                return
+            }
+            
             let TMappable = T.self as? Mappable.Type
             let model = TMappable?.init(JSON: json, context: nil) as? T
             onResult?(model)
@@ -79,5 +84,17 @@ class AbstractApiClient: NSObject {
         }
         
         return nil
+    }
+    
+    private func errorFromJSONResponce(_ json: [String: Any]) -> Error? {
+        guard let code = json["cod"] as? Int else { return nil }
+        guard 200..<300 ~= code else {
+            // bad status code, serverResponse.value, could contain erro message
+           let errorMessage = (json["message"] as? String)
+           return errorMessage?.toError()
+        }
+        
+        return nil
+        
     }
 }

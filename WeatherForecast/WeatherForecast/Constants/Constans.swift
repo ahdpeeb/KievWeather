@@ -14,8 +14,11 @@ typealias AnyDict = [String: Any]
 typealias StringDict = [String: String]
 
 struct Constans {
+    static let storedCityID = "703448"
+    
     enum WeatherApi: String {
-        case apiKey = "bd5e378503939ddaee76f12ad7a97608"
+//        case apiKey = "bd5e378503939ddaee76f12ad7a97608"
+        case apiKey = "bd5e3785039"
     }
     
     struct ErrorMessage {

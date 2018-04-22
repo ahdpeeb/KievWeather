@@ -50,7 +50,7 @@ public class Model<Storage: RLMModel> {
     
     public required init(id: ID) {
         self.id = id
-        
+//        print(id.description)
         self.configure()
     }
     

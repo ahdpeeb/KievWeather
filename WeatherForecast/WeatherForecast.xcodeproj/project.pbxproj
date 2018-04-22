@@ -43,6 +43,9 @@
 		93FD6C9D208C9FCC0060FEA0 /* AbstractApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FD6C9C208C9FCC0060FEA0 /* AbstractApiClient.swift */; };
 		93FD6C9F208CAA120060FEA0 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FD6C9E208CAA120060FEA0 /* City.swift */; };
 		93FD6CA1208CAA2E0060FEA0 /* RLMCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FD6CA0208CAA2E0060FEA0 /* RLMCity.swift */; };
+		93FD6CA3208CB8530060FEA0 /* LocalStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FD6CA2208CB8530060FEA0 /* LocalStorageManager.swift */; };
+		93FD6CA5208CB8EE0060FEA0 /* LocalStoreManager+Public.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FD6CA4208CB8EE0060FEA0 /* LocalStoreManager+Public.swift */; };
+		93FD6CA7208CCA280060FEA0 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FD6CA6208CCA280060FEA0 /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +86,9 @@
 		93FD6C9C208C9FCC0060FEA0 /* AbstractApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractApiClient.swift; sourceTree = "<group>"; };
 		93FD6C9E208CAA120060FEA0 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		93FD6CA0208CAA2E0060FEA0 /* RLMCity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RLMCity.swift; sourceTree = "<group>"; };
+		93FD6CA2208CB8530060FEA0 /* LocalStorageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalStorageManager.swift; sourceTree = "<group>"; };
+		93FD6CA4208CB8EE0060FEA0 /* LocalStoreManager+Public.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocalStoreManager+Public.swift"; sourceTree = "<group>"; };
+		93FD6CA6208CCA280060FEA0 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		A9914B188F1111B972420176 /* Pods-WeatherForecast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherForecast.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherForecast/Pods-WeatherForecast.release.xcconfig"; sourceTree = "<group>"; };
 		B0288AF0179C53B386463B28 /* Pods-WeatherForecast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherForecast.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherForecast/Pods-WeatherForecast.debug.xcconfig"; sourceTree = "<group>"; };
 		F111E1C6D5B75CD0CC68C79E /* Pods_WeatherForecast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherForecast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,6 +144,7 @@
 		93FD6C38208BA9F60060FEA0 /* WeatherForecast */ = {
 			isa = PBXGroup;
 			children = (
+				93FD6CA8208CCA3E0060FEA0 /* Services */,
 				93FD6C7E208BBFC50060FEA0 /* Constants */,
 				93FD6C76208BAFB10060FEA0 /* RealmStorage */,
 				93FD6C71208BAD290060FEA0 /* Functions */,
@@ -266,6 +273,8 @@
 		93FD6C76208BAFB10060FEA0 /* RealmStorage */ = {
 			isa = PBXGroup;
 			children = (
+				93FD6CA2208CB8530060FEA0 /* LocalStorageManager.swift */,
+				93FD6CA4208CB8EE0060FEA0 /* LocalStoreManager+Public.swift */,
 				93FD6C59208BAC1F0060FEA0 /* RealmModel */,
 			);
 			path = RealmStorage;
@@ -296,6 +305,14 @@
 				93FD6CA0208CAA2E0060FEA0 /* RLMCity.swift */,
 			);
 			path = RLMModels;
+			sourceTree = "<group>";
+		};
+		93FD6CA8208CCA3E0060FEA0 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				93FD6CA6208CCA280060FEA0 /* DataManager.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -436,6 +453,7 @@
 				93FD6C66208BAC1F0060FEA0 /* Model.swift in Sources */,
 				93FD6C93208C99220060FEA0 /* UINib+Extension.swift in Sources */,
 				93FD6C70208BAD190060FEA0 /* Optinal+Extension.swift in Sources */,
+				93FD6CA5208CB8EE0060FEA0 /* LocalStoreManager+Public.swift in Sources */,
 				93FD6C80208BBFE20060FEA0 /* Constans.swift in Sources */,
 				93FD6C84208BC7A60060FEA0 /* ApiConstans.swift in Sources */,
 				93FD6C8B208BCF0C0060FEA0 /* RLMWeather.swift in Sources */,
@@ -456,11 +474,13 @@
 				93FD6C86208BCC6F0060FEA0 /* ApiClient.swift in Sources */,
 				93FD6C7B208BAFC70060FEA0 /* RLMUser.swift in Sources */,
 				93FD6C9F208CAA120060FEA0 /* City.swift in Sources */,
+				93FD6CA3208CB8530060FEA0 /* LocalStorageManager.swift in Sources */,
 				93FD6C82208BC5FD0060FEA0 /* EndPoinst.swift in Sources */,
 				93FD6C9D208C9FCC0060FEA0 /* AbstractApiClient.swift in Sources */,
 				93FD6C52208BAAAC0060FEA0 /* RootNavigationController.swift in Sources */,
 				93FD6C7D208BBB8C0060FEA0 /* WeatherRegions.swift in Sources */,
 				93FD6C67208BAC1F0060FEA0 /* RMLModel.swift in Sources */,
+				93FD6CA7208CCA280060FEA0 /* DataManager.swift in Sources */,
 				93FD6C68208BAC1F0060FEA0 /* WeakBox.swift in Sources */,
 				93FD6C9B208C99B60060FEA0 /* String+Extension.swift in Sources */,
 				93FD6C97208C997E0060FEA0 /* UIViewController+Alert.swift in Sources */,

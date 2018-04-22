@@ -22,10 +22,14 @@ final class Weather: Model<RLMWeather>, Mappable {
     public var tempEve: Int? { didSet { self.write() } }
     public var tempMorn: Int? { didSet { self.write() } }
     
-    // fatalError for debag mode 
+    //Probleb: server returns 16 weather objects for city, all objects have 4 differt ID 500, 501, 800, 803 (so i have to replace primary key with date)
+    
+    // fatalError for debag mode
+    /* guard let weather = map.JSON["weather"] as? [[String: Any]] else { fatalError("weather reqest parsing error") }
+    guard let id = weather.first?["id"] as? Int else { fatalError("weather reqest parsing error") } */
+    
     required init?(map: Map) {
-        guard let weather = map.JSON["weather"] as? [[String: Any]] else { fatalError("weather reqest parsing error") }
-        guard let id = weather.first?["id"] as? Int else { fatalError("weather reqest parsing error") }
+        guard let id = map.JSON["dt"] as? Int else { return nil }
         super.init(id: ID(integerLiteral: id))
     }
     
@@ -35,9 +39,9 @@ final class Weather: Model<RLMWeather>, Mappable {
     
     func mapping(map: Map) {
         self.data <- map["dt"]
-        self.main <- map["weather.main"]
-        self.info <- map["weather.description"]
-        self.icon <- map["weather.icon"]
+        self.main <- map["weather.[0].main"]
+        self.info <- map["weather.[0].description"]
+        self.icon <- map["weather.[0].icon"]
         self.tempDay <- map["temp.day"]
         self.tempMin <- map["temp.min"]
         self.tempMax <- map["temp.max"]

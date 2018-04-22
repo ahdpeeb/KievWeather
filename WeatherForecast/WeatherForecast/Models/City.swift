@@ -36,14 +36,16 @@ final class City: Model<RLMCity>, Mappable {
         storage.country = self.country
         
         let rlmWeathers = (self.weather ?? []).map({ $0.storage })
-        storage.arrayOfSchedule.append(objectsIn: rlmWeathers)
+        //should remove all old weather for this city
+        storage.weather.removeAll()
+        storage.weather.append(objectsIn: rlmWeathers)
     }
     
     open override func readStorage(_ storage: StorageType) {
         self.name = storage.name
         self.country = storage.country
         
-        let weathers: [Weather] = storage.arrayOfSchedule.compactMap({ rlmWeather in
+        let weathers: [Weather] = storage.weather.compactMap({ rlmWeather in
             return Weather.instantiate(storage: rlmWeather)
         })
         
