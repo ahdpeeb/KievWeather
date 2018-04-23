@@ -10,8 +10,7 @@ import UIKit
 import Charts
 
 class WeatherChartViewController: UIViewController {
-    public var didSelectDate: SimpleClosure?
-    var axisFormatDelegate: IAxisValueFormatter?
+    public var didSelectWeather: ((_ weather: Weather?) -> Void)?
     
     public var weathers: [Weather] = [] {
         didSet {
@@ -19,11 +18,8 @@ class WeatherChartViewController: UIViewController {
         }
     }
     
-    @IBOutlet var chartView: LineChartView! {
-        didSet {
-            
-        }
-    }
+    fileprivate weak var axisFormatDelegate: IAxisValueFormatter?
+    @IBOutlet fileprivate var chartView: LineChartView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +41,7 @@ class WeatherChartViewController: UIViewController {
         view.pinchZoomEnabled = true
         view.drawGridBackgroundEnabled = false
         
-        let xaxis = chartView.xAxis
+        let xaxis = view.xAxis
         xaxis.labelPosition = .bottom
         xaxis.valueFormatter = axisFormatDelegate
         xaxis.labelCount = weathers.count
@@ -55,10 +51,10 @@ class WeatherChartViewController: UIViewController {
         xaxis.avoidFirstLastClippingEnabled = true
         xaxis.drawLimitLinesBehindDataEnabled = true
         
-        let rightAxis = chartView.rightAxis
+        let rightAxis = view.rightAxis
         rightAxis.enabled = false
         
-        let leftAxis = chartView.leftAxis
+        let leftAxis = view.leftAxis
         leftAxis.drawZeroLineEnabled = false
         leftAxis.drawGridLinesEnabled = true
     }
@@ -67,7 +63,7 @@ class WeatherChartViewController: UIViewController {
         var dayEntries: [ChartDataEntry] = []
         var nightEntries: [ChartDataEntry] = []
         
-        let date: [Double] = self.weathers.compactMap({ $0.data.map({ Double($0) }) })
+        let date: [Double] = self.weathers.compactMap({ $0.date.map({ Double($0) }) })
         let dayTemperature: [Double] = self.weathers.map({ $0.tempDay ?? 0 })
         let nightTemperature: [Double] = self.weathers.map({ $0.tempNight ?? 0 })
         
@@ -109,6 +105,8 @@ extension WeatherChartViewController: IAxisValueFormatter {
 
 extension WeatherChartViewController: ChartViewDelegate {
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
-        print(entry.x)
+        let weatherDate = Int(entry.x)
+        let selectedWeather = self.weathers.first(where: { $0.date == weatherDate })
+        self.didSelectWeather?(selectedWeather)
     }
 }

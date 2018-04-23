@@ -115,8 +115,15 @@ fileprivate extension WeatherViewController {
             self.addChildViewControoler(controller, toContainerView: container)
             self.chartViewController = controller
             controller.weathers = self.weatherToDisplay
+            
+            controller.didSelectWeather = { [weak self] weather in
+                guard let selectedWeather: Weather = weather else { return }
+                guard let selectedWeatherIdx = self?.weatherToDisplay.index(where: { $0.date == selectedWeather.date }) else { return }
+                self?.collectionView?.scrollToItem(at: [0, selectedWeatherIdx],
+                                                   at: .centeredHorizontally,
+                                                   animated: true)
+            }
         }
-        
     }
     
     func cardSize() -> CGSize {
@@ -127,12 +134,12 @@ fileprivate extension WeatherViewController {
     
     func listenNetworkConnection() {
         let reachability = self.reachability
-        reachability?.whenReachable = { reachability in
-            self.loadKievWeather()
+        reachability?.whenReachable = { [weak self] reachability in
+            self?.loadKievWeather()
         }
         
-        reachability?.whenUnreachable = { _ in
-            self.displayAlert(message: Constans.ErrorMessage.internetConnection)
+        reachability?.whenUnreachable = { [weak self] _ in
+            self?.displayAlert(message: Constans.ErrorMessage.internetConnection)
         }
         
         do {

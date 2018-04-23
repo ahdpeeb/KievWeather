@@ -11,7 +11,7 @@ import ObjectMapper
 
 final class Weather: Model<RLMWeather>, Mappable {
     
-    public var data: Int? { didSet { self.write() } }
+    public var date: Int? { didSet { self.write() } }
     public var main: String? { didSet { self.write() } }
     public var info: String? { didSet { self.write() } }
     public var icon: String? { didSet { self.write() } }
@@ -25,7 +25,7 @@ final class Weather: Model<RLMWeather>, Mappable {
     //MARK: Helper prop
     
     public var weatherDate: Date?  {
-        guard let data = self.data.flatMap({ Double( $0 ) }) else { return nil }
+        guard let data = self.date.flatMap({ Double( $0 ) }) else { return nil }
         return Date(timeIntervalSince1970: data)
     }
     
@@ -47,7 +47,7 @@ final class Weather: Model<RLMWeather>, Mappable {
     }
     
     func mapping(map: Map) {
-        self.data <- map["dt"]
+        self.date <- map["dt"]
         self.main <- map["weather.0.main"]
         self.info <- map["weather.0.description"]
         self.icon <- map["weather.0.icon"]
@@ -62,7 +62,7 @@ final class Weather: Model<RLMWeather>, Mappable {
     //MARK: Requered override
     
     open override func wtiteStorage(_ storage: StorageType) {
-        storage.data.value = self.data
+        storage.date.value = self.date
         storage.main = self.main
         storage.info = self.info
         storage.icon = self.icon
@@ -75,7 +75,7 @@ final class Weather: Model<RLMWeather>, Mappable {
     }
     
     open override func readStorage(_ storage: StorageType) {
-        self.data = storage.data.value
+        self.date = storage.date.value
         self.main = storage.main
         self.info = storage.info
         self.icon = storage.icon

@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 
 class RLMWeather: RLMModel {
-    let data = RealmOptional<Int>()
+    let date = RealmOptional<Int>()
     @objc dynamic var main: String?
     @objc dynamic var info: String?
     @objc dynamic var icon: String?
